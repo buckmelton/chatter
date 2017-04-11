@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = "Welcome to Chatter!"
       redirect_to @user # Go to user profile page, equiv to redirect_to user_url(@user)
     else
       render 'new'  # Go back to 'new' page
